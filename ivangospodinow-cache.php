@@ -4,7 +4,7 @@
  Plugin URI:
  Description:
  Author: Ivan Gospodinow
- Version: 1.0
+ Version: 1.1
  Author URI: http://www.ivangospodinow.com
  */
 require_once 'classes/ig_class_base.php';
@@ -23,9 +23,8 @@ if (is_admin()) {
 		ig_cache_set_options($options);
 		//clears cache
 		ig::get('cache')->clear();
-		//var_dump($options);
 	} 
-	
+	 
 	add_action('admin_menu','ig_cache_admin_menu'); 
 	function ig_cache_admin_menu(){
 		add_options_page(__('Ivan Gospodinow Cache'),__('ig cache'),'manage_options','ig_cache','ig_cache_admin_content');
@@ -41,9 +40,11 @@ if (is_admin()) {
 			$options = ig_cache_set_options($options);
 		}
 		$info = ig::get('cache')->cacheInfo();
+
 		?>
 		<div id="ig_cache_admin_content" style="width: 100%;">
 			<h3>Wellcome to Ivan Gospodinow`s cache plugin.The fastest cache plugin for wordpress.</h3>
+			<h4>For questions or information go to <a href="http://www.ivangospodinow.com/?p=149">Official site : IvanGospodinow.com</a></h4>
 			<form style="border: 1px dashed #c3c3c3;padding: 5px;" method="post">
 				<h4 style="margin: 0;">Configuration<?=!$options['ig_cache_on_off'] ? '&nbsp;<span style="color:red;">Plugin is turned off.</span>' : '&nbsp;<span style="color:green;">Plugin is turned on.</span>'?></h4>
 				<div style="font-style: italic;">

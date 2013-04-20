@@ -12,7 +12,7 @@ function ig_cache_get_options(){
 function ig_cache_set_options($config,$setDefault = false){
 	$default = array(
 		'ig_cache_time'=>60,
-		'ig_cache_on_off'=>0,
+		'ig_cache_on_off'=>1,
 		'average_execution_time'=>0,
 		'times_used_cache'=>0,
 		'script_runs'=>0,
@@ -39,7 +39,7 @@ function ig_cache_set_options($config,$setDefault = false){
 	$include = realpath(dirname(__FILE__)).'/ivangospodinow-cacher.php';
 	$index = realpath(dirname(__FILE__).'/../../../').'/index.php';
 	$lines = file($index);
-	//var_dump($lines);
+
 	if($config['ig_cache_on_off']){
 		$hasFile = false;
 		foreach($lines as $line){

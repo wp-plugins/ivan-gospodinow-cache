@@ -36,7 +36,7 @@ function ig_cache_shutdown() {
 	$time = round( microtime(true) - $_SERVER['ig_cacher_start_time'],4);
 	$options['average_execution_time'] = round(($time + $options['average_execution_time']) / 2,4);
 	ig_cache_set_options($options);
-	//var_dump($options);
+
 	if($options['ig_cache_prevent_on_errors']){
 		if(empty($errors)){
 			$identifier = sha1($_SERVER['REQUEST_URI']);
